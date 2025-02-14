@@ -4,8 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import './index.css';
 
+const isProduction = import.meta.env.MODE === "production";
+const basename = isProduction ? "/abes-art-site" : "/";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/abes-art-site">
+  <BrowserRouter basename={basename}>
     <App />
   </BrowserRouter>
 );

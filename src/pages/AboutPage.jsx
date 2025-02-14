@@ -59,7 +59,7 @@ export default function AboutPage() {
           <p className="mt-6 text-lg text-gray-800 leading-relaxed max-w-3xl mx-auto">
             In my classes, I emphasize both technical skills and self-expression. I encourage students to experiment, make mistakes, and discover their own unique artistic voice.
           </p>
-          <a href="/lessons" className="cursor-pointer font-bold text-lg leading-relaxed max-w-3xl mx-auto">Read more about my classes here.</a>
+          <a href="./lessons" className="cursor-pointer font-bold text-lg leading-relaxed max-w-3xl mx-auto">Read more about my classes here.</a>
         </div>
       </div>
 

@@ -2,6 +2,7 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import bg from "../assets/painting-bg.jpg"
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -19,12 +20,12 @@ export default function HomePage() {
           <p className="mt-6 font-medium text-lg md:text-xl font-quicksand text-gray-100 max-w-2xl mx-auto leading-relaxed">
             Bringing creativity to life through vibrant colors <br /> and captivating Artworks.
           </p>
-          <a
-            href="./artworks"
+          <Link
+            to="./artworks"
             className="inline-block bg-[#E07A5F] hover:bg-[#D45A3C] text-white px-10 font-quicksand py-4 mt-10 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition"
           >
             See My Artwork
-          </a>
+          </Link>
         </div>
 
         {/* Abstract Background Elements */}
