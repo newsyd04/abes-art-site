@@ -20,7 +20,7 @@ export default function HomePage() {
             Bringing creativity to life through vibrant colors <br /> and captivating Artworks.
           </p>
           <a
-            href="/artworks"
+            href="./artworks"
             className="inline-block bg-[#E07A5F] hover:bg-[#D45A3C] text-white px-10 font-quicksand py-4 mt-10 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition"
           >
             See My Artwork
