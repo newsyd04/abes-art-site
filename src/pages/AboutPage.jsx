@@ -1,88 +1,122 @@
 "use client";
 import React from "react";
+import { useEffect } from "react";
+import Brushstroke from "../components/Brushstroke";
+import abepfp from "../assets/abepfp.jpg";
+import gallery from "../assets/gallery.jpg";
+import gallery2 from "../assets/gallery2.jpg";
+import gallery3 from "../assets/gallery3.jpg";
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = "About Abe - Abe's Art Studio";
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, []);
+
   return (
-    <div className="min-h-screen py-48 font-quicksand bg-gradient-to-tr from-[#D0CABA] to-[#D3C6B6]">
-      <hr className="w-32 mx-auto mb-8 border-t-4 border-[#A67B5B] opacity-75" />
-      
+    <main
+      className="min-h-screen text-[#3C322B] font-[Poppins]"
+      style={{
+        backgroundImage:
+          "url('https://www.transparenttextures.com/patterns/paper-fibers.png')",
+        backgroundColor: "#F1EEE6",
+      }}
+    >
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-6">Meet Abe</h1>
-        <p className="text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed">
-          I'm a lifelong artist dedicated to bringing creativity to life. With over a decade of experience, I specialize in both creating art and inspiring others to explore their artistic journey.
-        </p>
-        <hr className="w-32 mx-auto my-8 border-t-4 border-[#A67B5B]" />
+      <section className="pt-40 pb-20 px-6 text-center">
         <img
-          src="https://www.annascaul.ie/wp-content/uploads/2016/05/abe.jpg"
-          alt="Abe in the studio"
-          className="rounded-xl mx-auto shadow-2xl hover:scale-105 transition duration-500"
+          src={abepfp}
+          alt="Abe's Portrait"
+          className="w-40 h-40 rounded-full mx-auto mb-6 shadow-lg"
         />
-      </div>
+        <h1 className="text-4xl md:text-[2.7rem] font-[Playfair_Display] text-[#2E2520] leading-tight tracking-wide">
+          Meet Abe
+        </h1>
+        <Brushstroke />
+        <p className="mt-6 text-lg text-[#5C5247] max-w-2xl mx-auto leading-relaxed">
+          Abe Boland is a lifelong artist dedicated to transforming creativity
+          into connection. With over a decade of experience, Abe brings warmth
+          and artistry to every brushstroke — both in his paintings and in his
+          teaching.
+        </p>
+      </section>
 
       {/* Biography Section */}
-      <div className="max-w-6xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="max-w-7xl mx-auto px-10 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Text */}
+        <div className="flex flex-col items-start">
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">My Journey</h2>
-            <hr className="w-24 border-t-4 border-[#A67B5B] mb-6" />
-            <p className="text-lg text-gray-800 leading-relaxed">
-              My artistic journey began as a child, captivated by the ability to tell stories through shapes, colors, and textures. Over the years, I refined my skills, earning a degree in Fine Arts at [Art School]. From traditional painting to digital media, I've embraced many forms of artistic expression.
-            </p>
-            <p className="mt-6 text-lg text-gray-800 leading-relaxed">
-              I've had the privilege to exhibit my work in galleries and collaborate with various organizations, but my greatest passion lies in teaching. Helping others unlock their creative potential is deeply rewarding to me.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-[Playfair_Display] mb-4 text-[#2E2520]">
+              My Journey
+            </h2>
+            <Brushstroke className="items-left" />
           </div>
-          {/* Hover Effect on Image */}
-          <div className="relative group">
-            <img
-              src="https://www.annascaul.ie/wp-content/uploads/2015/04/Abe-Boland-3.jpg"
-              alt="Abe's artwork in progress"
-              className="w-full rounded-2xl shadow-lg transition duration-500"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
-              <h2 className="text-2xl font-bold">Abe at Work</h2>
-              <p className="mt-2 text-sm text-gray-200">Bringing imagination to life.</p>
-            </div>
+          <p className="text-lg text-[#4B4036] leading-relaxed mb-6">
+            My artistic journey began as a child, captivated by how shapes,
+            colors, and textures could tell stories words never could.
+          </p>
+          <p className="text-lg text-[#4B4036] leading-relaxed">
+            Over the years, I’ve exhibited my work in shows and collaborated
+            with creative organizations, but my greatest joy has been sharing
+            art with others — helping students unlock their own creative voices
+            and confidence.
+          </p>
+        </div>
+
+        {/* Image */}
+        <div className="relative group">
+          <img
+            src={gallery}
+            alt="Abe painting in his studio"
+            className="w-full rounded-2xl shadow-md transition-transform duration-700 group-hover:scale-[1.03]"
+          />
+          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center text-white rounded-2xl">
+            <h2 className="text-2xl font-semibold">Abe at Work</h2>
+            <p className="mt-2 text-sm text-gray-200">
+              Where inspiration meets canvas.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Studio Banner */}
+      <section className="relative z-10 w-full overflow-hidden my-10 md:my-16 animate-fadeIn">
+
+        <img
+          src={gallery2}
+          alt="Abe’s Art Studio"
+          className="w-full h-[180px] md:h-[280px] lg:h-[380px] object-cover shadow-inner ring-1 ring-[#EAE4DA]/60"
+        />
+
+      </section>
 
       {/* Teaching Philosophy Section */}
-      <div className="bg-[#b5aa99] py-24">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">My Teaching Philosophy</h2>
-          <hr className="w-24 mx-auto border-t-4 border-[#A67B5B] mb-6" />
-          <p className="text-lg text-gray-800 leading-relaxed max-w-3xl mx-auto">
-            I believe that art is for everyone. Whether you're a beginner or an experienced artist, you have the potential to create something meaningful. My goal is to provide a safe, supportive, and inspiring environment where students can explore their creativity without fear of judgment.
+      <section className="py-24 text-center px-6 bg-[#FFFFFF]/60 backdrop-blur-sm rounded-t-[2rem] mt-[-4rem] shadow-inner">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-[Playfair_Display] text-[#2E2520] mb-4">
+            My Teaching Philosophy
+          </h2>
+          <Brushstroke />
+          <p className="text-lg text-[#4B4036] leading-relaxed mb-6">
+            I believe that art is for everyone. Whether you're picking up a
+            brush for the first time or returning to an old passion, creativity
+            thrives in the right environment. My teaching centers around
+            patience, exploration, and self-expression.
           </p>
-          <p className="mt-6 text-lg text-gray-800 leading-relaxed max-w-3xl mx-auto">
-            In my classes, I emphasize both technical skills and self-expression. I encourage students to experiment, make mistakes, and discover their own unique artistic voice.
+          <p className="text-lg text-[#4B4036] leading-relaxed">
+            I encourage students to take risks, make mistakes, and celebrate the
+            process as much as the final piece. In my studio, there’s no right
+            or wrong — just curiosity and discovery.
           </p>
-          <a href="./lessons" className="cursor-pointer font-bold text-lg leading-relaxed max-w-3xl mx-auto">Read more about my classes here.</a>
+          <a
+            href="./lessons"
+            className="inline-block mt-10 text-lg font-medium text-[#9C7A5C] hover:underline"
+          >
+            Read more about my classes →
+          </a>
         </div>
-      </div>
-
-      {/* Featured Art Section */}
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Featured Artworks</h2>
-        <hr className="w-32 mx-auto border-t-4 border-[#A67B5B] mb-12" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            { title: "Abstract Landscape", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS08z8EaYiA6hsi2PwO6JcOHidwYtScdVAiaNEcSeK8i7OzEYGOMP8oS2cCZOH9atLVtAk&usqp=CAU" },
-            { title: "Portrait Study", img: "https://scontent.fdub6-1.fna.fbcdn.net/v/t39.30808-6/449697732_1281497416154805_3757539237154008125_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ufO-b-KTeCgQ7kNvgH0mNte&_nc_oc=AdiirS9jiXu_RUHiDPea1_yUC_7lEEI2OqkcALronEWhZVlIJlMSk8d7mtevSLuwQsQ&_nc_zt=23&_nc_ht=scontent.fdub6-1.fna&_nc_gid=Aw1mOjL-u2Rdf4HITmkLz25&oh=00_AYD8iAXM0_ffPDcQFkpl2G_2AyJBR0_la6uxXjYW07V0iw&oe=67B54B43" },
-            { title: "Surreal Dreams", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLZ2CT9pMWNnBHBPhQlFtAamVrNJLcenmMyg&s" },
-          ].map((art, index) => (
-            <div key={index} className="relative group bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
-              <img src={art.img} alt={art.title} className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-xl font-bold">{art.title}</h3>
-                <p className="text-gray-300 text-sm mt-2">Blending fantasy and reality to spark imagination.</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

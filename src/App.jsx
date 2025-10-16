@@ -10,12 +10,13 @@ import ContactPage from "./pages/ContactPage.jsx";
 export default function App() {
   return (
     <div>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<><Navbar mode="dark" /><HomePage /></>} />
-        <Route path="/about" element={<><Navbar mode="light" /><AboutPage /></>} />
-        <Route path="/artworks" element={<><Navbar mode="light" /><ArtworksPage /></>} />
-        <Route path="/lessons" element={<><Navbar mode="light" /><LessonsPage /></>} />
-        <Route path="/contact" element={<><Navbar mode="light" /><ContactPage /></>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/artworks" element={<ArtworksPage />} />
+        <Route path="/lessons" element={<LessonsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </div>

@@ -1,67 +1,99 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function ArtworksPage() {
-  const Artworks = [
-    { id: 1, title: "Piece One", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITat_C1T3CECyZdR_zGcKPLvn0bcukaSY0w&s"},
-    { id: 2, title: "Piece Two", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s"},
-    { id: 3, title: "Piece Three", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s"},
-    { id: 4, title: "Piece Four", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZKASaan2iM-Qe-XxJbs0xoHvGgoFFxMRyQA&s"},
-    { id: 5, title: "Piece Five", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx_L8fzO5Kpt94bNHZNVhhoHqy9fV9qQofzQ&s"},
-    { id: 6, title: "Piece Six", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Up1WEXeW26r-fdrr-u0_D2EfBfekSv_SPQ&s"},
-    { id: 7, title: "Piece Seven", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRp3qk9DtbihrctzWbvCUPkHnoxd7bybbmrw&s"},
-    { id: 8, title: "Piece Eight", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnF0SmxypO4LK2NTAgP0Lez8VSvALLuacmcQ&s"},
+  const artworksData = [
+    { id: 1, title: "Coastal Quiet", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITat_C1T3CECyZdR_zGcKPLvn0bcukaSY0w&s", year: 2023 },
+    { id: 2, title: "Soft Morning", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s", year: 2024 },
+    { id: 3, title: "Low Tide", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s", year: 2022 },
+    { id: 4, title: "Evening Calm", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITat_C1T3CECyZdR_zGcKPLvn0bcukaSY0w&s", year: 2023 },
+    { id: 5, title: "Silent Field", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s", year: 2024 },
+    { id: 6, title: "Distant Shore", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s", year: 2021 },
+    { id: 7, title: "Winter Air", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s", year: 2022 },
+    { id: 8, title: "Golden Path", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s", year: 2023 },
   ];
 
+  const [filter, setFilter] = useState("newest");
+
+  const sortedArtworks = [...artworksData].sort((a, b) =>
+    filter === "newest" ? b.year - a.year : a.year - b.year
+  );
+
+  useEffect(() => {
+    document.title = "Artworks - Abe's Art Studio";
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, []);
+
   return (
-    <div className="min-h-screen py-48 font-quicksand bg-gradient-to-tr from-[#D0CABA] to-[#D3C6B6]">
-      
-      {/* Page Header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Artworks Collection</h1>
-        <hr className="w-32 mt-6 mx-auto mb-8 border-t-4 border-[#A67B5B] opacity-75" />
-        <p className="text-lg text-gray-800 max-w-3xl mx-auto leading-relaxed mt-4">
-          Discover a selection of my finest artwork, each crafted with passion and creativity.
-        </p>
-      </div>
-
-      {/* Masonry Grid Artworks Section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[minmax(100px,_auto)] gap-4">
-          {Artworks.map((piece) => (
-            <div key={piece.id} className="relative">
-              
-              {/* Image */}
-              <div className="relative group">
-                <img
-                  src={piece.image}
-                  alt={piece.title}
-                  className="w-full h-auto object-contain rounded-xl shadow-md"
-                />
-
-                {/* Hover Overlay - Only Over Image */}
-                <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center p-2 items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
-                  <h2 className="text-2xl font-bold">{piece.title}</h2>
-                </div>
-              </div>
-              
-              {/* No Overlay Here - Details Are Hidden by Default */}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Final Section for Custom Requests */}
-      <div className="bg-[#b5aa99] py-24 text-center">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Custom Artwork Requests</h2>
-          <hr className="w-24 mx-auto border-t-4 border-[#A67B5B] mb-6 opacity-75" />
-          <p className="text-lg text-gray-800 leading-relaxed max-w-3xl mx-auto">
-            Looking for a unique, personalized piece? I accept custom commissions tailored to your vision. Whether it's a portrait, abstract composition, or conceptual artwork, I’d love to bring your ideas to life.
+    <main
+      className="min-h-screen text-[#3C322B] font-[Poppins]"
+      style={{
+        backgroundImage:
+          "url('https://www.transparenttextures.com/patterns/paper-fibers.png')",
+        backgroundColor: "#F1EEE6",
+      }}
+    >
+      {/* Header Section */}
+      <section className="pt-40 pb-8 px-10 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6">
+        {/* Left: Title + Subtitle */}
+        <div className="text-center sm:text-left">
+          <h1 className="text-4xl md:text-[2.6rem] font-[Playfair_Display] text-[#2E2520] leading-tight tracking-wide">
+            Recent Works
+          </h1>
+          <p className="mt-2 text-[0.95rem] text-[#5C5247] max-w-md leading-relaxed">
+            A curated selection of paintings exploring stillness, texture, and
+            light — works that reflect quiet beauty in everyday moments.
           </p>
         </div>
-      </div>
 
-    </div>
+        {/* Right: Filter Bar */}
+        <div className="flex justify-center sm:justify-end w-full sm:w-auto">
+          <div className="inline-flex items-center gap-3 bg-white/80 shadow-sm backdrop-blur-sm ring-1 ring-[#E8E2D9] rounded-full px-6 py-2">
+            {["newest", "oldest"].map((id) => (
+              <button
+                key={id}
+                onClick={() => setFilter(id)}
+                className={`px-3 py-1 text-sm font-medium transition ${
+                  filter === id
+                    ? "text-[#2E2520] font-semibold"
+                    : "text-[#7A7065] hover:text-[#2E2520]"
+                }`}
+              >
+                {id === "newest" ? "Newest" : "Oldest"}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <hr className="max-w-7xl mx-auto border-t border-[#D8D0C2] opacity-60 mb-12" />
+
+      {/* Artworks Grid */}
+      <section className="max-w-7xl mx-auto px-10 pb-28 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        {sortedArtworks.map((art) => (
+          <figure
+            key={art.id}
+            className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition bg-[#FCFCFC]/90 ring-1 ring-[#EAE4DA] hover:ring-[#C9B79F] p-2"
+          >
+            <img
+              src={art.image}
+              alt={art.title}
+              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03] rounded-xl"
+            />
+            <figcaption className="pt-3 text-center px-2">
+              <h2 className="text-base font-medium text-[#2E2520]">
+                {art.title}
+              </h2>
+              <p className="text-xs text-[#6E645A] italic">
+                Mixed Media • {art.year}
+              </p>
+            </figcaption>
+          </figure>
+        ))}
+      </section>
+    </main>
   );
 }
