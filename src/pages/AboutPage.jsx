@@ -72,10 +72,7 @@ export default function AboutPage() {
             className="w-full rounded-2xl shadow-md transition-transform duration-700 group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center text-white rounded-2xl">
-            <h2 className="text-2xl font-semibold">Abe at Work</h2>
-            <p className="mt-2 text-sm text-gray-200">
-              Where inspiration meets canvas.
-            </p>
+            <h2 className="text-2xl font-semibold">Studio Gallery Exhibition</h2>
           </div>
         </div>
       </section>
