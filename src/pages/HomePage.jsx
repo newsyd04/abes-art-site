@@ -75,18 +75,23 @@ export default function HomePage() {
           ].map((art, index) => (
             <div
               key={index}
-              className="relative group bg-white rounded-2xl shadow-md overflow-hidden transform hover:scale-105 transition duration-500"
+              className="relative group bg-white rounded-2xl shadow-md overflow-hidden transform md:hover:scale-105 transition duration-500"
             >
+              {/* Image */}
               <img
                 src={art.img}
                 alt={art.title}
                 className="w-full h-64 object-cover"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+              {/* Overlay — only visible on md+ screens */}
+              <div className="hidden md:flex absolute inset-0 bg-black bg-opacity-70 flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <h3 className="text-xl font-semibold">{art.title}</h3>
-                <p className="text-gray-300 text-sm mt-2 max-w-xs px-4">
-                  Blending imagination and emotion through brushwork.
-                </p>
+              </div>
+
+              {/* Mobile title — always visible on small screens */}
+              <div className="md:hidden absolute bottom-0 left-0 right-0 bg-black/60 text-white text-center py-2">
+                <h3 className="text-base font-medium">{art.title}</h3>
               </div>
             </div>
           ))}

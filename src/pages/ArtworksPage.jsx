@@ -1,30 +1,41 @@
 "use client";
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function ArtworksPage() {
-  const artworksData = [
-    { id: 1, title: "Coastal Quiet", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITat_C1T3CECyZdR_zGcKPLvn0bcukaSY0w&s", year: 2023 },
-    { id: 2, title: "Soft Morning", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s", year: 2024 },
-    { id: 3, title: "Low Tide", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s", year: 2022 },
-    { id: 4, title: "Evening Calm", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQITat_C1T3CECyZdR_zGcKPLvn0bcukaSY0w&s", year: 2023 },
-    { id: 5, title: "Silent Field", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s", year: 2024 },
-    { id: 6, title: "Distant Shore", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s", year: 2021 },
-    { id: 7, title: "Winter Air", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz_YZuFYW2JTMGUQj-E0aBb7Aha6Go6VLR3w&s", year: 2022 },
-    { id: 8, title: "Golden Path", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtD4_lIdw_5X8CffEQtKh0FSjNjV01wFR8AA&s", year: 2023 },
-  ];
-
+  const [artworks, setArtworks] = useState([]);
   const [filter, setFilter] = useState("newest");
+  const [loading, setLoading] = useState(true);
 
-  const sortedArtworks = [...artworksData].sort((a, b) =>
-    filter === "newest" ? b.year - a.year : a.year - b.year
-  );
+  const API_BASE = "https://webdev-backends.onrender.com/abe";
 
   useEffect(() => {
+    const fetchArtworks = async () => {
+      try {
+        const res = await axios.get(`${API_BASE}/images`);
+        setArtworks(res.data);
+      } catch (error) {
+        console.error("Error fetching artworks:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchArtworks();
+
     document.title = "Artworks - Abe's Art Studio";
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo(0, 0);
   }, []);
+
+  // ✅ Extract timestamp from MongoDB ObjectId
+  const getTimestampFromId = (id) =>
+    new Date(parseInt(id.substring(0, 8), 16) * 1000);
+
+  // ✅ Proper sorting logic
+  const sortedArtworks = [...artworks].sort((a, b) =>
+    filter === "newest"
+      ? getTimestampFromId(b._id) - getTimestampFromId(a._id)
+      : getTimestampFromId(a._id) - getTimestampFromId(b._id)
+  );
 
   return (
     <main
@@ -35,9 +46,8 @@ export default function ArtworksPage() {
         backgroundColor: "#F1EEE6",
       }}
     >
-      {/* Header Section */}
+      {/* Header */}
       <section className="pt-40 pb-8 px-10 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-end gap-6">
-        {/* Left: Title + Subtitle */}
         <div className="text-center sm:text-left">
           <h1 className="text-4xl md:text-[2.6rem] font-[Playfair_Display] text-[#2E2520] leading-tight tracking-wide">
             Recent Works
@@ -48,7 +58,7 @@ export default function ArtworksPage() {
           </p>
         </div>
 
-        {/* Right: Filter Bar */}
+        {/* Filter Buttons */}
         <div className="flex justify-center sm:justify-end w-full sm:w-auto">
           <div className="inline-flex items-center gap-3 bg-white/80 shadow-sm backdrop-blur-sm ring-1 ring-[#E8E2D9] rounded-full px-6 py-2">
             {["newest", "oldest"].map((id) => (
@@ -68,32 +78,48 @@ export default function ArtworksPage() {
         </div>
       </section>
 
-      {/* Divider */}
       <hr className="max-w-7xl mx-auto border-t border-[#D8D0C2] opacity-60 mb-12" />
 
-      {/* Artworks Grid */}
-      <section className="max-w-7xl mx-auto px-10 pb-28 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-        {sortedArtworks.map((art) => (
-          <figure
-            key={art.id}
-            className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition bg-[#FCFCFC]/90 ring-1 ring-[#EAE4DA] hover:ring-[#C9B79F] p-2"
-          >
-            <img
-              src={art.image}
-              alt={art.title}
-              className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03] rounded-xl"
-            />
-            <figcaption className="pt-3 text-center px-2">
-              <h2 className="text-base font-medium text-[#2E2520]">
-                {art.title}
-              </h2>
-              <p className="text-xs text-[#6E645A] italic">
-                Mixed Media • {art.year}
-              </p>
-            </figcaption>
-          </figure>
-        ))}
-      </section>
+      {/* Masonry Grid */}
+      {loading ? (
+        <p className="text-center text-[#5C5247] mt-20 text-lg italic">
+          Loading artworks…
+        </p>
+      ) : artworks.length === 0 ? (
+        <p className="text-center text-[#5C5247] mt-20 text-lg italic">
+          No artworks uploaded yet.
+        </p>
+      ) : (
+        <section className="max-w-7xl mx-auto px-6 pb-28 columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
+          {sortedArtworks.map((art) => (
+            <figure
+              key={art._id}
+              className="break-inside-avoid group relative bg-[#FCFCFC]/90 p-2 rounded-2xl shadow-sm ring-1 ring-[#EAE4DA] hover:ring-[#C9B79F] overflow-hidden transition"
+            >
+              <div className="relative overflow-hidden rounded-xl">
+                {/* Image */}
+                <img
+                  src={art.imageUrl}
+                  alt={art.title}
+                  className="w-full h-auto object-cover transition-transform duration-700 ease-out md:group-hover:scale-[1.05]"
+                />
+
+                {/* Hover Overlay — only visible on desktop */}
+                <div className="hidden md:flex absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 items-end justify-center pb-4">
+                  <h2 className="text-white text-sm font-medium text-center px-3 drop-shadow-sm bg-black/30 rounded-md py-1">
+                    {art.title || "Untitled"}
+                  </h2>
+                </div>
+              </div>
+
+              {/* Mobile Title (always visible) */}
+              <figcaption className="md:hidden text-center text-sm text-[#2E2520] font-medium mt-2">
+                {art.title || "Untitled"}
+              </figcaption>
+            </figure>
+          ))}
+        </section>
+      )}
     </main>
   );
 }
