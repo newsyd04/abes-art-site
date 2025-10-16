@@ -36,7 +36,7 @@ export default function ContactPage() {
           <div className="flex items-center justify-center space-x-4">
             <i className="fa-solid fa-phone text-2xl text-[#9C7A5C]"></i>
             <p className="text-xl font-medium text-[#2E2520]">
-              +123-456-7890
+              +353-87-297-5588
             </p>
           </div>
 

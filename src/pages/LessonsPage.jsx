@@ -135,7 +135,7 @@ export default function LessonsPageGradient() {
             <p className="text-lg font-medium">
               To inquire about lessons or register:
             </p>
-            <p className="text-2xl font-bold mt-4">+123-456-7890</p>
+            <p className="text-2xl font-bold mt-4">+353-87-297-5588</p>
             <p className="text-[#4B4036]/80 text-sm mt-2">
               Classes available for all ages and experience levels.
             </p>

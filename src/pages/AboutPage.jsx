@@ -43,7 +43,7 @@ export default function AboutPage() {
       </section>
 
       {/* Biography Section */}
-      <section className="max-w-7xl mx-auto px-10 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="max-w-7xl mx-auto px-10 py-24 grid grid-cols-1  lg:grid-cols-2 gap-16 items-center">
         {/* Text */}
         <div className="flex flex-col items-start">
           <div>

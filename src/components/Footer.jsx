@@ -30,7 +30,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <p className="text-gray-400">📍 Annascaul, Co. Kerry, Ireland</p>
-            <p className="text-gray-400">📞 +123-456-7890</p>
+            <p className="text-gray-400">📞 +353-87-297-5588</p>
             <p className="text-gray-400">✉️ <a href="mailto:contact@abeartstudio.com" className="hover:text-gray-300">contact@abeartstudio.com</a></p>
           </div>
 
