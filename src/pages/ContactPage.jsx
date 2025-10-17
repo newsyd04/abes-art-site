@@ -40,7 +40,7 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center space-x-4">
+          <div className="flex items-center justify-center px-8 space-x-4">
             <i className="fa-solid fa-envelope text-2xl text-[#9C7A5C]"></i>
             <a className="text-xl font-medium text-[#2E2520]" href="mailto:artabraham63@gmail.com">
               artabraham63@gmail.com
