@@ -25,7 +25,6 @@ export default function Footer() {
               <li><a href="./" className="hover:text-gray-300 transition">Home</a></li>
               <li><a href="./about" className="hover:text-gray-300 transition">About Me</a></li>
               <li><a href="./artworks" className="hover:text-gray-300 transition">Artworks</a></li>
-              <li><a href="./lessons" className="hover:text-gray-300 transition">Lessons</a></li>
               <li><a href="./contact" className="hover:text-gray-300 transition">Contact</a></li>
               <li><a href="./login" className="hover:text-gray-300 transition">Admin Login</a></li>
             </ul>
@@ -40,10 +39,10 @@ export default function Footer() {
               <p>
                 ✉️{" "}
                 <a
-                  href="mailto:contact@abeartstudio.com"
+                  href="mailto:artabraham63@gmail.com"
                   className="hover:text-gray-300 transition"
                 >
-                  contact@abeartstudio.com
+                  artabraham63@gmail.com
                 </a>
               </p>
             </address>
@@ -73,32 +72,18 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a
-              href="#"
+              href="https://www.facebook.com/people/Irish-Artist-Abe-Boland/100028836773416/"
               aria-label="Facebook"
               className="hover:text-gray-300 transition"
             >
               <i className="fa-brands fa-facebook text-2xl"></i>
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/abe.boland/"
               aria-label="Instagram"
               className="hover:text-gray-300 transition"
             >
               <i className="fa-brands fa-instagram text-2xl"></i>
-            </a>
-            <a
-              href="#"
-              aria-label="Twitter"
-              className="hover:text-gray-300 transition"
-            >
-              <i className="fa-brands fa-twitter text-2xl"></i>
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="hover:text-gray-300 transition"
-            >
-              <i className="fa-brands fa-linkedin text-2xl"></i>
             </a>
           </div>
         </div>

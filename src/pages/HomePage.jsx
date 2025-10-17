@@ -126,41 +126,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Unified Lessons & Contact Section */}
-      <section className="relative py-24 bg-gradient-to-br from-[#F5EFE6] via-[#F9F8F5] to-[#FAF9F6] px-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          {/* Art Lessons */}
-          <div className="text-center md:text-left">
-            <h2 className="text-4xl font-[Playfair_Display] text-[#2E2520] mb-4">
-              Art Lessons
-            </h2>
-            <p className="text-[#5C5247] font-[Poppins] text-lg max-w-md mx-auto md:mx-0 mb-10 leading-relaxed">
-              Abe offers art lessons for students of all ages and experience
-              levels. From beginner classes to advanced workshops, learn to
-              paint in a warm and inspiring environment that nurtures creativity.
-            </p>
-            <Link
-              to="/lessons"
-              className="inline-block bg-[#9C7A5C] hover:bg-[#7C5E45] text-white px-8 py-3 rounded-full text-lg font-[Poppins] transition shadow-md hover:shadow-lg"
-            >
-              Explore Lessons
-            </Link>
-          </div>
-
-          {/* Get in Touch */}
-          <div className="text-center md:text-left">
-            <h2 className="text-4xl font-[Playfair_Display] text-[#2E2520] mb-4">
-              Get in Touch
-            </h2>
-            <p className="text-[#5C5247] font-[Poppins] text-lg max-w-md mx-auto md:mx-0 mb-10 leading-relaxed">
-              Interested in a collaboration or private lesson? Abe would love to
-              hear from you. Reach out to discuss your ideas or schedule your
-              first session.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-block bg-[#E07A5F] hover:bg-[#D45A3C] text-white px-8 py-3 rounded-full text-lg font-[Poppins] transition shadow-md hover:shadow-lg"
-            >
+        {/* Contact Section */}
+        <section className="relative py-24 bg-gradient-to-br from-[#F5EFE6] via-[#F9F8F5] to-[#FAF9F6] px-10">
+          <div className="max-w-7xl mx-auto flex justify-center">
+            {/* Get in Touch */}
+            <div className="text-center">
+              <h2 className="text-4xl font-[Playfair_Display] text-[#2E2520] mb-4">
+                Get in Touch
+              </h2>
+              <p className="text-[#5C5247] font-[Poppins] text-lg max-w-md mx-auto md:mx-0 mb-10 leading-relaxed">
+                Interested in a collaboration or purchasing a piece? Feel free to
+                reach out!
+              </p>
+              <Link
+                to="/contact"
+                className="inline-block bg-[#E07A5F] hover:bg-[#D45A3C] text-white px-8 py-3 rounded-full text-lg font-[Poppins] transition shadow-md hover:shadow-lg"
+              >
               Contact Abe
             </Link>
           </div>

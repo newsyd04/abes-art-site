@@ -51,7 +51,7 @@ export default function Navbar() {
               isHome ? "text-white" : "text-black"
             }`}
           >
-            {["about", "artworks", "lessons", "contact"].map((link) => (
+            {["about", "artworks", "login", "contact"].map((link) => (
               <li
                 key={link}
                 onClick={() => handleNavigation(`/${link}`)}
@@ -74,7 +74,7 @@ export default function Navbar() {
             <i className="fa-solid fa-xmark"></i>
           </button>
           <ul className="text-gray-900 text-center text-3xl space-y-8 font-quicksand">
-            {["about", "artworks", "lessons", "contact"].map((link) => (
+            {["about", "artworks", "login", "contact"].map((link) => (
               <li
                 key={link}
                 onClick={() => handleNavigation(`/${link}`)}

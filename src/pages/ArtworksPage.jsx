@@ -53,8 +53,8 @@ export default function ArtworksPage() {
             Recent Works
           </h1>
           <p className="mt-2 text-[0.95rem] text-[#5C5247] max-w-md leading-relaxed">
-            A curated selection of paintings exploring stillness, texture, and
-            light — works that reflect quiet beauty in everyday moments.
+            A selection of my latest paintings and creations, showcasing my
+            evolving style and artistic journey.
           </p>
         </div>
 

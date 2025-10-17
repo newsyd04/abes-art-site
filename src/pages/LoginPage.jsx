@@ -17,7 +17,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F3EFEA] font-[Poppins]">
+    <div
+      className="min-h-screen flex items-center justify-center bg-[#F1EEE6] font-[Poppins]"
+      style={{
+        backgroundImage: "url('https://www.transparenttextures.com/patterns/paper-fibers.png')",
+        backgroundColor: "#F1EEE6",
+      }}
+    >
       <div className="bg-white p-10 rounded-3xl shadow-lg w-full max-w-sm border border-[#EAE4DA]">
         <h1 className="text-3xl font-semibold text-center text-[#2E2520] mb-6">
           Admin Login

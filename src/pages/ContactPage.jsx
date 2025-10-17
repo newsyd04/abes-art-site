@@ -27,7 +27,7 @@ export default function ContactPage() {
         </h1>
         <Brushstroke />
         <p className="text-lg text-[#5C5247] leading-relaxed mb-10">
-          Reach out to me for inquiries about art lessons, collaborations, or
+          Reach out to me for inquiries about purchasing, collaborations, or
           artwork commissions. I’d love to hear from you and discuss your ideas.
         </p>
 
@@ -42,9 +42,9 @@ export default function ContactPage() {
 
           <div className="flex items-center justify-center space-x-4">
             <i className="fa-solid fa-envelope text-2xl text-[#9C7A5C]"></i>
-            <p className="text-xl font-medium text-[#2E2520]">
-              abe@artstudio.com
-            </p>
+            <a className="text-xl font-medium text-[#2E2520]" href="mailto:artabraham63@gmail.com">
+              artabraham63@gmail.com
+            </a>
           </div>
 
           <div className="flex items-center justify-center space-x-4">
@@ -61,22 +61,16 @@ export default function ContactPage() {
         {/* Social Icons */}
         <div className="flex justify-center space-x-6">
           <a
-            href="#"
+            href="https://www.facebook.com/people/Irish-Artist-Abe-Boland/100028836773416/"
             className="text-[#9C7A5C] text-2xl hover:text-[#7B5E45] transition"
           >
             <i className="fa-brands fa-facebook"></i>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/abe.boland/"
             className="text-[#9C7A5C] text-2xl hover:text-[#7B5E45] transition"
           >
             <i className="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            href="#"
-            className="text-[#9C7A5C] text-2xl hover:text-[#7B5E45] transition"
-          >
-            <i className="fa-brands fa-twitter"></i>
           </a>
         </div>
       </div>

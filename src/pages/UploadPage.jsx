@@ -61,7 +61,7 @@ export default function UploadPage() {
 
   return (
     <div className="min-h-screen bg-[#F1EEE6] pt-32 pb-16 px-4 sm:px-8 md:px-12 font-[Poppins]">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10">
+      <div className="max-w-3xl mx-auto flex flex-col gap-10">
         {/* Upload Form */}
         <div className="bg-white/90 p-6 sm:p-8 rounded-2xl shadow-md border border-[#EAE4DA]">
           <h1 className="text-3xl text-[#2E2520] font-[Playfair_Display] mb-6 text-center">

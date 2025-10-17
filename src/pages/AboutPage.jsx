@@ -36,8 +36,8 @@ export default function AboutPage() {
         <Brushstroke />
         <p className="mt-6 text-lg text-[#5C5247] max-w-2xl mx-auto leading-relaxed">
           Abe Boland is a lifelong artist dedicated to transforming creativity
-          into connection. With over a decade of experience, Abe brings warmth
-          and artistry to every brushstroke — both in his paintings and in his
+          into connection. With over three decades of experience, Abe brings warmth
+          and artistry to every brushstroke, both in his paintings and in his
           teaching.
         </p>
       </section>
@@ -54,14 +54,11 @@ export default function AboutPage() {
           </div>
           <p className="text-lg text-[#4B4036] leading-relaxed mb-6">
             My artistic journey began as a child, captivated by how shapes,
-            colors, and textures could tell stories words never could.
-          </p>
+            colors, and textures could tell stories words never could. 
+            Since then I've been a self-taught community artist since 1996, and specialise in a wide range of visual art practices. </p>
           <p className="text-lg text-[#4B4036] leading-relaxed">
-            Over the years, I’ve exhibited my work in shows and collaborated
-            with creative organizations, but my greatest joy has been sharing
-            art with others — helping students unlock their own creative voices
-            and confidence.
-          </p>
+            Over the years, I’ve exhibited my work in shows, collaborated
+            with creative organizations, worked with neighborhood youth projects, primary and secondary school children, hosted private art lessons, and ran after school art for children. </p>
         </div>
 
         {/* Image */}
@@ -92,25 +89,24 @@ export default function AboutPage() {
       <section className="py-24 text-center px-6 bg-[#FFFFFF]/60 backdrop-blur-sm rounded-t-[2rem] mt-[-4rem] shadow-inner">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-[Playfair_Display] text-[#2E2520] mb-4">
-            My Teaching Philosophy
+            My Art Studio
           </h2>
           <Brushstroke />
           <p className="text-lg text-[#4B4036] leading-relaxed mb-6">
-            I believe that art is for everyone. Whether you're picking up a
-            brush for the first time or returning to an old passion, creativity
-            thrives in the right environment. My teaching centers around
-            patience, exploration, and self-expression.
+            Nestled in the heart of Annascaul, Co. Kerry, my art studio is a
+            welcoming space where creativity flourishes. Here, I offer
+            display of my latest works and occasional gallery events.
           </p>
           <p className="text-lg text-[#4B4036] leading-relaxed">
-            I encourage students to take risks, make mistakes, and celebrate the
-            process as much as the final piece. In my studio, there’s no right
-            or wrong — just curiosity and discovery.
+            Whether you’re an art enthusiast or simply curious, I invite you to
+            visit the studio, explore my collections, and immerse yourself in
+            the world of art.
           </p>
           <a
-            href="./lessons"
+            href="./contact"
             className="inline-block mt-10 text-lg font-medium text-[#9C7A5C] hover:underline"
           >
-            Read more about my classes →
+            Get in touch today →
           </a>
         </div>
       </section>
