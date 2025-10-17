@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://newsyd04.github.io/abes-art-site/",
+  "homepage": "https://https://www.abeboland.art/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

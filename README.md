@@ -1,9 +1,15 @@
-# React + Vite
+# Abe's Art Studio — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, accessible portfolio and storefront for Abe's Art Studio. Contains the site source, build scripts, and deployment configuration.
 
-Currently, two official plugins are available:
+## Features
+- Responsive, mobile-first layout
+- Gallery, featured works, and about pages
+- Contact form (configurable)
+- SEO meta and social sharing tags
+- Build optimized for performance and accessibility
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# abes-art-site
+## Tech stack
+- Static site generator or framework: React
+- CSS: Tailwind
+- Deployment targets: Vercel
